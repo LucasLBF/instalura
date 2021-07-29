@@ -46,7 +46,7 @@ MenuWrapper.CentralSide = styled.div`
   
 `;
 MenuWrapper.RightSide = styled.div`
-  // background-color: blueviolet; DEBUG
+  // background-color: blueviolet;
   padding: 0;
   margin: 0;
   order: 2;
@@ -54,6 +54,5 @@ MenuWrapper.RightSide = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 24px;
   color: #fb7b6b;
 `;

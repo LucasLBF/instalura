@@ -1,8 +1,7 @@
 import React from "react";
 import { MenuWrapper } from "./styles/MenuWrapper";
 import { Logo } from "../../theme/Logo";
-import { PrimaryButton } from "../buttons/PrimaryButton";
-import { SecondaryButton } from "../buttons/SecondaryButton";
+import { Button } from "../Button";
 
 const links = [
   {
@@ -38,8 +37,10 @@ export default function Menu() {
         })}
       </MenuWrapper.CentralSide>
       <MenuWrapper.RightSide>
-        <SecondaryButton text="Entrar" />
-        <PrimaryButton text="Cadastrar" />
+        <Button ghost variant="secondary.main">
+          Entrar
+        </Button>
+        <Button variant="primary.main">Cadastrar</Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );
