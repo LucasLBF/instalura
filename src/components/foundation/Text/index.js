@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-const TextStyleVariantsMap = {
+export const TextStyleVariantsMap = {
   smallestException: css`
     font-size: ${({ theme }) =>
       theme.typographyVariants.smallestException.fontSize};
