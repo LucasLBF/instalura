@@ -28,22 +28,21 @@ MenuWrapper.CentralSide = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 1.0625rem;
-  border-top: 2px solid #F2F2F2;
-  border-bottom 2px solid #F2F2F2;
+  border-top: 2px solid #f2f2f2;
+  border-bottom: 2px solid #f2f2f2;
   padding: 0.75rem;
   a {
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #88989E;
+    color: #88989e;
     transition: 200ms ease-in-out;
     &:hover,
     &:focus {
-    font-weight: 500;
-    color: #070C0E
+      font-weight: 500;
+      color: #070c0e;
     }
   }
-  
 `;
 MenuWrapper.RightSide = styled.div`
   // background-color: blueviolet;
