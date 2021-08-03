@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import { get } from "lodash";
+import { propToStyle } from "../../theme/utils/propToStyle";
 
 export const TextStyleVariantsMap = {
   smallestException: css`
@@ -21,15 +23,14 @@ export const TextStyleVariantsMap = {
 };
 
 const TextBase = styled.span`
-  ${(props) => {
-    console.log(props);
-    return TextStyleVariantsMap[props.variant];
-  }}
+  ${({ variant }) => TextStyleVariantsMap[variant]}
+  color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
+  ${propToStyle("textAlign")}
 `;
 
-export default function Text({ tag, variant, children }) {
+export default function Text({ tag, variant, color, children, ...props }) {
   return (
-    <TextBase tag={tag} variant={variant}>
+    <TextBase as={tag} variant={variant} color={color} {...props}>
       {children}
     </TextBase>
   );

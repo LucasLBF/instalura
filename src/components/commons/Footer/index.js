@@ -13,7 +13,7 @@ export default function Footer() {
       <p>
         Orgulhosamente criado durante o
         <a href="https://www.alura.com.br/">
-          <span>Bootcamp Alura JAM Stack</span>
+          <span> Bootcamp Alura JAM Stack</span>
         </a>
       </p>
     </FooterWrapper>
