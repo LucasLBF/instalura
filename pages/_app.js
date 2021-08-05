@@ -1,7 +1,7 @@
-import { ThemeProvider } from "styled-components";
-import theme from "../src/components/theme";
-import GlobalStyle from "../src/components/theme/GlobalStyle";
-import Head from "next/head";
+import { ThemeProvider } from 'styled-components';
+import Head from 'next/head';
+import theme from '../src/components/theme';
+import GlobalStyle from '../src/components/theme/GlobalStyle';
 
 export default function App({ Component, pageProps }) {
   return (

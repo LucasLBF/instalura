@@ -1,10 +1,21 @@
-import styled, { css } from "styled-components";
-import get from "lodash/get";
-import { TextStyleVariantsMap } from "../../foundation/Text";
-import { breakpointsMedia } from "../../theme/utils/breakpointsMedia";
-import { propToStyle } from "../../theme/utils/propToStyle";
+import styled, { css } from 'styled-components';
+// eslint-disable-next-line import/no-unresolved
+import get from 'lodash/get';
+import { TextStyleVariantsMap } from '../../foundation/Text';
+import breakpointsMedia from '../../theme/utils/breakpointsMedia';
+import propToStyle from '../../theme/utils/propToStyle';
 
-export const Button = styled.button`
+const ButtonGhost = css`
+  background: transparent;
+  color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
+`;
+
+const DefaultButton = css`
+  background-color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
+  color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
+`;
+
+export default styled.button`
   border: 0;
   padding: 12px 26px;
   font-weight: bold;
@@ -33,18 +44,7 @@ export const Button = styled.button`
     `,
   })}
 
-  ${propToStyle("margin")}
-  ${propToStyle("display")}
-  ${propToStyle("alignSelf")}
-`;
-
-const ButtonGhost = css`
-  background: transparent;
-  color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
-`;
-
-const DefaultButton = css`
-  background-color: ${(props) =>
-    get(props.theme, `colors.${props.variant}.color`)};
-  color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
+  ${propToStyle('margin')}
+  ${propToStyle('display')}
+  ${propToStyle('alignSelf')}
 `;

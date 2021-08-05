@@ -1,32 +1,32 @@
-const darkColors = {
+export default {
   background: {
     main: {
-      color: "#030506",
+      color: '#030506',
     },
   },
   borders: {
     main: {
-      color: "#181F22",
+      color: '#181F22',
     },
   },
   primary: {
     main: {
-      color: "#F27895",
-      contrastText: "#fff",
+      color: '#F27895',
+      contrastText: '#fff',
     },
   },
   secondary: {
     main: {
-      color: "#FFA59A",
-      contrastText: "#fff",
+      color: '#FFA59A',
+      contrastText: '#fff',
     },
   },
   tertiary: {
     main: {
-      color: "#D5D5D5",
+      color: '#D5D5D5',
     },
     dark: {
-      color: "#fff",
+      color: '#fff',
     },
   },
 };

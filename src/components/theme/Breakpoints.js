@@ -1,4 +1,4 @@
-export const breakpoints = {
+export default {
   xs: 0,
   sm: 480,
   md: 768,

@@ -1,5 +1,5 @@
-import React from "react";
-import { FooterWrapper } from "./styles/FooterWrapper";
+import React from 'react';
+import FooterWrapper from './styles/FooterWrapper';
 
 export default function Footer() {
   return (

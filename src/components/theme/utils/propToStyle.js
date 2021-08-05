@@ -1,22 +1,31 @@
-import { breakpointsMedia } from "./breakpointsMedia";
+import breakpointsMedia from './breakpointsMedia';
 
-export const propToStyle = (propName) => {
-  return function (props) {
+export default function propToStyle(propName) {
+  return (props) => {
     const propValue = props[propName];
-    if (typeof propValue === "string") {
+    if (typeof propValue === 'string') {
       return {
         [propName]: props[propName],
       };
-    } else if (typeof propValue === "object") {
-      console.log(propValue);
-      const newObj = {};
-      for (const key in propValue) {
-        newObj[key] = {
-          [propName]: propValue[key],
-        };
-      }
-      // console.log(newObj);
-      return breakpointsMedia(newObj);
+    } if (typeof propValue === 'object') {
+      return breakpointsMedia({
+        xs: {
+          [propName]: propValue.xs,
+        },
+        sm: {
+          [propName]: propValue.sm,
+        },
+        md: {
+          [propName]: propValue.md,
+        },
+        lg: {
+          [propName]: propValue.lg,
+        },
+        xl: {
+          [propName]: propValue.xl,
+        },
+      });
     }
+    return '';
   };
-};
+}
