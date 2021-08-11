@@ -24,12 +24,19 @@ export default function Home() {
       <Modal isOpen={isModalOpen} onClose={setModal}>
         {(props) => (
           <Box
+            justify-self="flex-end"
+            width={{
+              xs: '100%',
+              lg: '32rem',
+            }}
+            boxShadow="8px 0 48px rgb(0 0 0 / 50%)"
             backgroundColor="white"
             data-modal-safe-area="true"
+            padding="10rem 5rem"
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           >
-            Hello World
+            Pronto para saber da vida dos outros?
           </Box>
         )}
       </Modal>

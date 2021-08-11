@@ -7,6 +7,11 @@ export default styled.div`
   ${propToStyle('flexDirection')}
   ${propToStyle('flexWrap')}
   ${propToStyle('justifyContent')}
+  ${propToStyle('justifySelf')}
+  ${propToStyle('width')}
+  ${propToStyle('max-width')}
+  ${propToStyle('padding')}
+  ${propToStyle('boxShadow')}
   ${propToStyle('backgroundImage')}
   ${propToStyle('backgroundColor')}
   ${propToStyle('backgroundRepeat')}
