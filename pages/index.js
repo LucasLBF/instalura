@@ -5,8 +5,10 @@ import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Grid from '../src/components/layout/Grid';
 import Box from '../src/components/layout/Box';
+import Modal from '../src/components/commons/Modal';
 
 export default function Home() {
+  const [isModalOpen, setModal] = React.useState(false);
   return (
     <Box
       flex="1"
@@ -19,7 +21,18 @@ export default function Home() {
       backgroundRepeat="no-repeat"
     >
       <Menu />
-
+      <Modal isOpen={isModalOpen} onClose={setModal}>
+        {(props) => (
+          <Box
+            backgroundColor="white"
+            data-modal-safe-area="true"
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...props}
+          >
+            Hello World
+          </Box>
+        )}
+      </Modal>
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
           <Grid.Col
@@ -65,6 +78,9 @@ export default function Home() {
                 md: 'initial',
               }}
               display="block"
+              onClick={() => {
+                setModal(!isModalOpen);
+              }}
             >
               Cadastrar
             </Button>

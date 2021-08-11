@@ -8,6 +8,7 @@ export default styled.div`
   ${propToStyle('flexWrap')}
   ${propToStyle('justifyContent')}
   ${propToStyle('backgroundImage')}
+  ${propToStyle('backgroundColor')}
   ${propToStyle('backgroundRepeat')}
   ${propToStyle('backgroundPosition')}
 `;
