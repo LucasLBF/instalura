@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
 import { get } from 'lodash';
 import propToStyle from '../../theme/utils/propToStyle';
+import breakpointsMedia from '../../theme/utils/breakpointsMedia';
 
 export const TextStyleVariantsMap = {
   smallestException: css`
@@ -17,12 +18,30 @@ export const TextStyleVariantsMap = {
     font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
     line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
   `,
+  title: css`
+    ${({ theme }) => css`
+      font-size: ${theme.typographyVariants.titleXS.fontSize};
+      font-weight: ${theme.typographyVariants.titleXS.fontWeight};
+      line-height: ${theme.typographyVariants.titleXS.lineHeight};
+    `}
+    ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+          font-size: ${theme.typographyVariants.title.fontSize};
+          font-weight: ${theme.typographyVariants.title.fontWeight};
+          line-height: ${theme.typographyVariants.title.lineHeight};
+        `}
+      `,
+  })}
+  `,
 };
 
 const TextBase = styled.span`
   ${({ variant }) => TextStyleVariantsMap[variant]}
   color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
   ${propToStyle('textAlign')}
+  ${propToStyle('marginBottom')}
+  ${propToStyle('margin')}
 `;
 
 export default function Text({
@@ -39,7 +58,7 @@ export default function Text({
 Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   color: PropTypes.string,
 };
 
@@ -47,4 +66,5 @@ Text.defaultProps = {
   color: '#000',
   tag: 'span',
   variant: 'paragraph1',
+  children: null,
 };

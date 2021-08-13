@@ -31,8 +31,10 @@ const Container = styled.div`
 const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* margin-right: -16px;
-  margin-left: -16px; */
+  ${propToStyle('marginLeft')}
+  ${propToStyle('marginRight')}
+  ${propToStyle('flex')}
+  ${propToStyle('justifyContent')}
 `;
 
 const Col = styled.div`
@@ -133,9 +135,10 @@ const Col = styled.div`
   }}
 
   ${propToStyle('display')}
-  ${propToStyle('flexDirection')}
-  ${propToStyle('justifyContent')}
   ${propToStyle('alignItems')}
+  ${propToStyle('justifyContent')}
+  ${propToStyle('flexDirection')}
+  ${propToStyle('paddingRight')}
 `;
 
 export default {

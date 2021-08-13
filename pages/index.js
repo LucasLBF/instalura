@@ -6,6 +6,7 @@ import Button from '../src/components/commons/Button';
 import Grid from '../src/components/layout/Grid';
 import Box from '../src/components/layout/Box';
 import Modal from '../src/components/commons/Modal';
+import RegisterForm from '../src/components/pattern/RegisterForm';
 
 export default function Home() {
   const [isModalOpen, setModal] = React.useState(false);
@@ -20,41 +21,25 @@ export default function Home() {
       backgroundPosition="bottom right"
       backgroundRepeat="no-repeat"
     >
-      <Menu />
       <Modal isOpen={isModalOpen} onClose={setModal}>
-        {(props) => (
-          <Box
-            justify-self="flex-end"
-            width={{
-              xs: '100%',
-              lg: '32rem',
-            }}
-            boxShadow="8px 0 48px rgb(0 0 0 / 50%)"
-            backgroundColor="white"
-            data-modal-safe-area="true"
-            padding="10rem 5rem"
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
-          >
-            Pronto para saber da vida dos outros?
-          </Box>
-        )}
+        {(modalProps) => <RegisterForm modalProps={modalProps} />}
       </Modal>
+
+      <Menu />
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
           <Grid.Col
-            offset={{ xs: 0, md: 1 }}
             value={{ xs: 12, md: 5 }}
+            offset={{ xs: 0, md: 1 }}
             display="flex"
-            flexDirection="column"
-            justifyContent="center"
             alignItems="flex-start"
+            justifyContent="center"
+            flexDirection="column"
           >
             <Text
               variant="title"
               tag="h1"
               color="tertiary.main"
-              // textAlign="center"
               textAlign={{
                 xs: 'center',
                 md: 'left',
@@ -76,15 +61,12 @@ export default function Home() {
               ever since the 1500s.
             </Text>
             <Button
-              variant="primary.main"
-              alignSelf={{
-                md: 'flex-start',
-              }}
               margin={{
                 xs: 'auto',
                 md: 'initial',
               }}
               display="block"
+              variant="primary.main"
               onClick={() => {
                 setModal(!isModalOpen);
               }}
