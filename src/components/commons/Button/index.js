@@ -44,6 +44,15 @@ export default styled.button`
     `,
   })}
 
+  &:disabled {
+    cursor: now-not-allowed;
+    opacity: .2;
+  }
+
+  ${({ fullWidth }) => fullWidth && css`
+    width: 100%; 
+  `} 
+
   ${propToStyle('margin')}
   ${propToStyle('display')}
   ${propToStyle('alignSelf')}

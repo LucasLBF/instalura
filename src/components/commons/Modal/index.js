@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
@@ -14,37 +14,46 @@ const ModalWrapper = styled.div`
   right: 0;
   bottom: 0;
   margin: auto;
-  overflow: hidden;
+  overflow: scroll;
+  transition: .3s;
   z-index: 100;
-  transition: opacity 200ms;
   ${({ isOpen }) => {
     if (isOpen) {
       return css`
-      opacity: 1;
-      pointer-events: all;
-     `;
+        opacity: 1;
+        pointer-events: all;
+      `;
     }
     return css`
-  opacity: 0;
-  pointer-events: none; 
- `;
+      opacity: 0;
+      pointer-events: none;
+    `;
   }}
 `;
 
-export default function Modal({ isOpen, onClose, children }) {
+const LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+`;
+function Modal({ isOpen, onClose, children }) {
   return (
     <ModalWrapper
       isOpen={isOpen}
-      onClick={(e) => {
-        if (!e.target.closest('[data-modal-safe-area="true"]')) {
-          onClose(!isOpen);
+      onClick={(event) => {
+        const isSafeArea = event.target.closest('[data-modal-safe-area="true"]');
+        // isOpen = false;
+        if (!isSafeArea) {
+          onClose();
         }
       }}
     >
+      {isOpen && <LockScroll />}
+
       <motion.div
         variants={{
           open: {
-            x: '70%',
+            x: 0,
           },
           closed: {
             x: '100%',
@@ -72,3 +81,5 @@ Modal.propTypes = {
   children: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
 };
+
+export default Modal;
