@@ -4,7 +4,8 @@
     "dev": "next -p 5000",
     "build": "next build",
     "start": "next start",
-    "custom-script": "node ./script-test.js"
+    "custom-script": "node ./script-test.js",
+    "lint": "eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
