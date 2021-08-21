@@ -27,5 +27,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Node version
         run: node -v
+      - name: Install all dependencies
+        run: yarn install
       - name: Linter
         run: yarn lint
