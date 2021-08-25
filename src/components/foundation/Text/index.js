@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled, { css } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
@@ -6,6 +7,7 @@ import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import propToStyle from '../../theme/utils/propToStyle';
 import breakpointsMedia from '../../theme/utils/breakpointsMedia';
+import Link from '../../commons/Link';
 
 export const TextStyleVariantsMap = {
   smallestException: css`
@@ -45,8 +47,26 @@ const TextBase = styled.span`
 `;
 
 export default function Text({
-  tag, variant, color, children, ...props
+  tag,
+  variant,
+  color,
+  children,
+  href,
+  ...props
 }) {
+  if (href) {
+    return (
+      <TextBase
+        as={Link}
+        variant={variant}
+        color={color}
+        href={href}
+        {...props}
+      >
+        {children}
+      </TextBase>
+    );
+  }
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <TextBase as={tag} variant={variant} color={color} {...props}>
@@ -60,6 +80,7 @@ Text.propTypes = {
   variant: PropTypes.string,
   children: PropTypes.node,
   color: PropTypes.string,
+  href: PropTypes.string,
 };
 
 Text.defaultProps = {
@@ -67,4 +88,5 @@ Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
   children: null,
+  href: '',
 };

@@ -1,9 +1,13 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
 import styled, { css } from 'styled-components';
 // eslint-disable-next-line import/no-unresolved
 import get from 'lodash/get';
+import PropTypes from 'prop-types';
 import { TextStyleVariantsMap } from '../../foundation/Text';
 import breakpointsMedia from '../../theme/utils/breakpointsMedia';
 import propToStyle from '../../theme/utils/propToStyle';
+import Link from '../Link';
 
 const ButtonGhost = css`
   background: transparent;
@@ -15,7 +19,7 @@ const DefaultButton = css`
   color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
 `;
 
-export default styled.button`
+const ButtonWrapper = styled.button`
   border: 0;
   padding: 12px 26px;
   font-weight: bold;
@@ -57,3 +61,26 @@ export default styled.button`
   ${propToStyle('display')}
   ${propToStyle('alignSelf')}
 `;
+
+export default function Button({ href, children, ...props }) {
+  const hasHref = Boolean(href);
+  const tag = hasHref ? Link : 'button';
+  return (
+    <ButtonWrapper
+      as={tag}
+      href={href}
+      {...props}
+    >
+      {children}
+    </ButtonWrapper>
+  );
+}
+
+Button.defaultProps = {
+  href: undefined,
+};
+
+Button.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
