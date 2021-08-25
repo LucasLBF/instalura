@@ -25,7 +25,11 @@ export default function Home() {
         {(modalProps) => <RegisterForm modalProps={modalProps} />}
       </Modal>
 
-      <Menu />
+      <Menu
+        onRegisterClick={() => {
+          setModal(true);
+        }}
+      />
       <Grid.Container marginTop={{ xs: '32px', md: '75px' }}>
         <Grid.Row>
           <Grid.Col
