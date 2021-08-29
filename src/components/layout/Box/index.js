@@ -16,4 +16,11 @@ export default styled.div`
   ${propToStyle('backgroundColor')}
   ${propToStyle('backgroundRepeat')}
   ${propToStyle('backgroundPosition')}
+  ${propToStyle('listStyle')}
+  ${propToStyle('margin')}
+  ${propToStyle('marginLeft')}
+  ${propToStyle('marginTop')}
+  ${propToStyle('marginBottom')}
+  ${propToStyle('marginRight')}
+  ${({ theme, borderRadiusTheme }) => borderRadiusTheme && `border-radius: ${theme.borderRadius}`};
 `;
