@@ -4,6 +4,7 @@ export default styled.footer`
   padding: 14px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 4px;
   padding: 0 28px;
   img {

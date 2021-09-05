@@ -26,6 +26,7 @@ const Container = styled.div`
     `,
   })}
   ${propToStyle('marginTop')}
+  ${propToStyle('flex')}
 `;
 
 const Row = styled.div`
